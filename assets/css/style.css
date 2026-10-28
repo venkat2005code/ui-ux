@@ -1,0 +1,269 @@
+/*
+  Theme Name: UX/UI Design Studio
+  Description: Modern HTML Template for UX/UI Agencies
+  Version: 1.0
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+:root {
+  /* 
+   * COLOR PALETTE (Task #32)
+   * Primary: Indigo (#4F46E5) - Used for primary actions, buttons, and links.
+   * Accent: Teal (#14B8A6) - Used for highlights and secondary elements.
+   * Backgrounds: White (#FFFFFF) to Light Gray (#F3F4F6) for depth.
+   */
+  --primary-color: #4F46E5; /* Indigo */
+  --primary-hover: #4338CA;
+  --accent-color: #14B8A6; /* Teal */
+  
+  --text-primary: #111827;
+  --text-secondary: #374151; /* Increased contrast (Task #26, #27) */
+  --text-light: #6B7280;     /* Increased contrast */
+  
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-tertiary: #F3F4F6;
+  
+  --border-color: #E5E7EB;
+  
+  /* Status Colors */
+  --success: #10B981;
+  --error: #EF4444;
+  --warning: #F59E0B;
+  
+  /* Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  
+  /* Spacing Base */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem;  /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem;  /* 24px */
+  --space-8: 2rem;    /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem;   /* 48px */
+  --space-16: 4rem;   /* 64px */
+  --space-20: 5rem;   /* 80px */
+  --space-24: 6rem;   /* 96px */
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+h1 { font-size: 3.5rem; letter-spacing: -0.02em; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 2.5rem; letter-spacing: -0.01em; font-weight: 700; line-height: 1.2; }
+h3 { font-size: 2rem; font-weight: 700; line-height: 1.3; }
+h4 { font-size: 1.5rem; font-weight: 700; line-height: 1.4; }
+h5 { font-size: 1.25rem; font-weight: 600; }
+h6 { font-size: 1rem; font-weight: 600; }
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Layout & Utility Classes
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.section {
+  padding: var(--space-20) 0;
+}
+
+.section-alt {
+  background-color: var(--bg-secondary);
+}
+
+/* Grid & Flex */
+.grid { display: grid; gap: var(--space-6); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.w-full { width: 100%; }
+
+/* Spacing Helpers */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-2 { margin-top: var(--space-2); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mt-10 { margin-top: var(--space-10); }
+.mb-10 { margin-bottom: var(--space-10); }
+.mt-12 { margin-top: var(--space-12); }
+.mb-12 { margin-bottom: var(--space-12); }
+.pt-16 { padding-top: var(--space-16); }
+.pb-16 { padding-bottom: var(--space-16); }
+.pt-12 { padding-top: var(--space-12); }
+.pb-12 { padding-bottom: var(--space-12); }
+.pt-8 { padding-top: var(--space-8); }
+.pb-8 { padding-bottom: var(--space-8); }
+.pt-0 { padding-top: 0; }
+.pb-0 { padding-bottom: 0; }
+.p-0 { padding: 0 !important; }
+.p-2 { padding: var(--space-2); }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+.p-10 { padding: var(--space-10); }
+.p-12 { padding: var(--space-12); }
+
+/* Text Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+.text-primary { color: var(--primary-color); }
+.text-accent { color: var(--accent-color); }
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  h1 { font-size: 2.75rem; }
+  h2 { font-size: 2rem; }
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 { grid-template-columns: 1fr; }
+  .section { padding: var(--space-12) 0; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.5rem; }
+  .section { padding: var(--space-10) 0; }
+}
+
+/* ==========================================================================
+   Premium Animations
+   ========================================================================== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Hero Zoom animation */
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+.hero-bg-anim {
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}

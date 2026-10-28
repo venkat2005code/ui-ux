@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura.</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <!-- Favicon (Task #1) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='9' cy='12' r='7' fill='%234f46e5' fill-opacity='0.8'/><circle cx='15' cy='12' r='7' fill='%2314b8a6' fill-opacity='0.8'/></svg>">
+
+    
+    <!-- Dark Mode & Direction Initializer (Prevents FOUC & persists across all pages) -->
+    <script>
+        (function() {
+            try {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+                const direction = localStorage.getItem('direction');
+                if (direction === 'rtl') {
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="nav-brand">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="12" r="7" fill="var(--primary-color)" fill-opacity="0.8"/>
+                    <circle cx="15" cy="12" r="7" fill="var(--accent-color)" fill-opacity="0.8"/>
+                </svg>
+                Aura<span>.</span>
+            </a>
+            
+            <nav id="navMenu" class="nav-menu">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                        Home
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home V1</a>
+                        <a href="index-2.html" class="dropdown-item">Home V2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="process.html" class="nav-link">Process</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <div class="nav-toggles">
+                    <button id="darkModeToggle" class="icon-toggle-btn" aria-label="Toggle Theme" title="Toggle Theme">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                    <button id="rtlToggle" class="icon-toggle-btn rtl-toggle-btn" aria-label="Toggle RTL" title="Toggle Direction">RTL</button>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Start Project</a>
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- Section 1: Discover (Hero) -->
+    <section class="section pt-24 pb-24 text-center" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%); color: white; position: relative; overflow: hidden;">
+        <div class="container relative max-w-3xl mx-auto" style="z-index: 2; max-width: 800px;">
+            <div class="inline-block px-4 py-1 mb-6 text-sm font-bold border rounded-full" style="border-color: rgba(255,255,255,0.3); letter-spacing: 1px;">PHASE 1: DISCOVER</div>
+            <h1 class="mb-6" style="color: white; font-size: 4rem; letter-spacing: -0.04em;">Uncovering the Core Problem</h1>
+            <p class="text-lg mb-0" style="color: rgba(255,255,255,0.9);">Every successful product starts with a deep understanding of the business goals and the target audience. In the discovery phase, we align our vision with your objectives.</p>
+        </div>
+        <!-- Decorative abstract blobs -->
+        <div style="position: absolute; top: -50%; left: -10%; width: 50vw; height: 50vw; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(40px);"></div>
+        <div style="position: absolute; bottom: -50%; right: -10%; width: 40vw; height: 40vw; background: rgba(0,0,0,0.1); border-radius: 50%; filter: blur(40px);"></div>
+    </section>
+
+    <!-- Section 2: Research -->
+    <section class="section">
+        <div class="container grid grid-cols-2 items-center gap-12">
+            <div>
+                <h4 class="text-accent mb-2">Phase 02</h4>
+                <h2 class="mb-4">Research & Validation</h2>
+                <p class="mb-6">We remove guesswork by gathering quantitative and qualitative data. Through user interviews, surveys, and competitive analysis, we uncover exactly what your users need and expect.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="card p-4 bg-tertiary">
+                        <svg width="24" height="24" fill="none" stroke="var(--primary-color)" stroke-width="2" viewBox="0 0 24 24" class="mb-2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <h4 class="h6 mb-1">User Interviews</h4>
+                        <p class="text-xs text-secondary mb-0">1-on-1 qualitative sessions</p>
+                    </div>
+                    <div class="card p-4 bg-tertiary">
+                        <svg width="24" height="24" fill="none" stroke="var(--primary-color)" stroke-width="2" viewBox="0 0 24 24" class="mb-2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        <h4 class="h6 mb-1">Market Analysis</h4>
+                        <p class="text-xs text-secondary mb-0">Competitor feature mapping</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div style="padding-bottom: 100%; border-radius: var(--radius-lg); background-image: url('../assets/IMAGES/Research%20%26%20Validation.jpg'); background-size: cover; background-position: center; box-shadow: var(--shadow-md);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Define -->
+    <section class="section section-alt">
+        <div class="container grid grid-cols-2 items-center gap-12">
+            <div class="relative" style="order: 1;">
+                <div style="padding-bottom: 100%; border-radius: var(--radius-lg); background-image: url('../assets/IMAGES/Define%20%26%20Strategize.webp'); background-size: cover; background-position: center; box-shadow: var(--shadow-md);"></div>
+            </div>
+            <div style="order: 2;">
+                <h4 class="text-accent mb-2">Phase 03</h4>
+                <h2 class="mb-4">Define & Strategize</h2>
+                <p class="mb-6">Synthesizing research into actionable insights. We map out user personas, define the information architecture, and create detailed user journeys to ensure a frictionless experience.</p>
+                <ul class="mb-0 font-medium text-secondary">
+                    <li class="mb-3 flex items-center gap-3"><span style="width: 24px; height: 24px; background: rgba(79, 70, 229, 0.1); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span> User Personas & Empathy Maps</li>
+                    <li class="mb-3 flex items-center gap-3"><span style="width: 24px; height: 24px; background: rgba(79, 70, 229, 0.1); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span> Information Architecture (IA)</li>
+                    <li class="mb-0 flex items-center gap-3"><span style="width: 24px; height: 24px; background: rgba(79, 70, 229, 0.1); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span> User Journey Mapping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Wireframe -->
+    <section class="section">
+        <div class="container grid grid-cols-2 items-center gap-12">
+            <div>
+                <h4 class="text-accent mb-2">Phase 04</h4>
+                <h2 class="mb-4">Structural Wireframing</h2>
+                <p class="mb-6">Before applying visual aesthetics, we focus entirely on functionality and layout. Low-fidelity wireframes act as blueprints to validate the core user flows rapidly.</p>
+                <p class="text-secondary text-sm italic border-l-2 pl-4" style="border-color: var(--primary-color);">"Form follows function. Wireframes allow us to iterate on structure without the distraction of colors and fonts."</p>
+            </div>
+            <div class="relative">
+                <div style="padding-bottom: 100%; border-radius: var(--radius-lg); background-image: url('../assets/IMAGES/Structural%20Wireframing.png'); background-size: cover; background-position: center; box-shadow: var(--shadow-md);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: UI Design -->
+    <section class="section section-alt text-center">
+        <div class="container max-w-3xl mx-auto" style="max-width: 800px;">
+            <h4 class="text-accent mb-2">Phase 05</h4>
+            <h2 class="mb-6">High-Fidelity UI Design</h2>
+            <p class="mb-10 text-lg">Bringing the blueprints to life. We apply typography, color palettes, and interactive elements to create stunning, accessible, and brand-aligned interfaces.</p>
+            
+            <div class="grid grid-cols-3 gap-6 text-left">
+                <div class="card bg-primary p-6 shadow-sm hover:-translate-y-1 transition duration-300">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #FF6B6B, #FF8E53); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h4 class="h6 mb-2">Color Systems</h4>
+                    <p class="text-sm text-secondary mb-0">Accessible & cohesive</p>
+                </div>
+                <div class="card bg-primary p-6 shadow-sm hover:-translate-y-1 transition duration-300">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: #2A2A2A; color: white; display: flex; align-items: center; justify-content: center; font-family: serif; font-size: 24px; margin-bottom: 16px;">Aa</div>
+                    <h4 class="h6 mb-2">Typography</h4>
+                    <p class="text-sm text-secondary mb-0">Readable & scalable</p>
+                </div>
+                <div class="card bg-primary p-6 shadow-sm hover:-translate-y-1 transition duration-300">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #4F46E5, #14B8A6); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="h6 mb-2">Components</h4>
+                    <p class="text-sm text-secondary mb-0">Modular UI Kits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Prototype & Test -->
+    <section class="section">
+        <div class="container grid grid-cols-2 items-center gap-12">
+            <div class="relative">
+                <div style="padding-bottom: 80%; border-radius: var(--radius-lg); background-image: url('../assets/IMAGES/Prototype%20%26%20Validate.webp'); background-size: cover; background-position: center; position: relative; box-shadow: var(--shadow-lg);"></div>
+            </div>
+            <div>
+                <h4 class="text-accent mb-2">Phase 06</h4>
+                <h2 class="mb-4">Prototype & Validate</h2>
+                <p class="mb-6">Static screens are transformed into clickable, interactive prototypes. We conduct rigorous usability testing with real users to validate assumptions and refine the experience prior to development.</p>
+                <div class="flex gap-4">
+                    <div style="flex: 1; padding-left: 16px; border-left: 2px solid var(--accent-color);">
+                        <h4 class="h5 mb-1">Clickable</h4>
+                        <p class="text-sm text-secondary mb-0">Figma & Propie prototyping</p>
+                    </div>
+                    <div style="flex: 1; padding-left: 16px; border-left: 2px solid var(--accent-color);">
+                        <h4 class="h5 mb-1">Feedback</h4>
+                        <p class="text-sm text-secondary mb-0">Iterative refinement loops</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Deliver & Launch -->
+    <section class="section section-alt border-bottom" style="border-bottom: 1px solid var(--border-color);">
+        <div class="container text-center max-w-3xl mx-auto" style="max-width: 800px;">
+            <div class="inline-block p-4 rounded-full bg-tertiary mb-6">
+                <svg width="40" height="40" fill="none" stroke="var(--primary-color)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h4 class="text-accent mb-2">Phase 07</h4>
+            <h2 class="mb-6">Deliver & Launch</h2>
+            <p class="text-lg text-secondary mb-10">We provide developers with comprehensive design specifications, assets, and documentation. We remain involved during the implementation phase to ensure a pixel-perfect build.</p>
+            <div class="flex justify-center gap-4">
+                <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">Start Your Project</a>
+                <a href="portfolio.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.125rem;">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: var(--bg-tertiary); margin-top: 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="footer-grid gap-8 mb-8">
+                <!-- Column 1: Brand & Info -->
+                <div style="grid-column: span 1;">
+                    <a href="index.html" class="nav-brand mb-4" style="font-size: 1.5rem; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="12" r="7" fill="var(--primary-color)" fill-opacity="0.8"/>
+                            <circle cx="15" cy="12" r="7" fill="var(--accent-color)" fill-opacity="0.8"/>
+                        </svg>
+                        Aura<span>.</span>
+                    </a>
+                    <p class="text-sm text-secondary mb-6">A premium UX/UI design studio dedicated to building intuitive and beautiful digital experiences for forward-thinking brands.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-secondary" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="text-secondary" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="#" class="text-secondary" aria-label="Dribbble"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm8.793-12.012c-.08-.137-2.31-3.921-6.84-4.522.062-.162.118-.328.172-.497 2.384-.528 4.708.01 4.887.056.241.062.464-.108.528-.35.064-.241-.106-.464-.348-.528-.278-.073-2.85-.694-5.49.034-.515-1.503-1.168-3.08-1.874-4.502-.117-.234-.403-.314-.62-.178-.22.138-.3.424-.183.66 2.457 4.966 2.464 9.176 2.464 9.255v.02c0 .248.203.45.45.45.247 0 .45-.202.45-.45v-.01c-.004-.378-.063-2.617-.92-5.508 4.09.435 6.096 3.865 6.136 3.935.127.215.405.286.62.16.216-.128.288-.407.16-.623zM9.535 7.185c.678 1.34 1.287 2.805 1.776 4.2-.876.246-1.84.444-2.885.576C7.03 8.35 4.316 6.32 4.14 6.186c-.198-.152-.486-.114-.638.083-.153.2-.116.488.083.64.06.044 2.864 2.152 4.414 5.96-2.583.18-5.57-.142-5.696-.157-.246-.03-.473.146-.504.39-.03.246.146.473.392.503.238.028 3.428.373 6.195.122.378 1.83 1.05 4.673 2.925 8.012.122.218.4.296.618.174.22-.12.298-.398.176-.617C9.9 17.39 9.39 14.532 9.1 12.833c1.077-.128 2.062-.317 2.956-.56.91 3.233 2.122 6.02 2.17 6.13.1.226.368.328.594.228.226-.1.328-.368.228-.594-.025-.054-1.225-2.83-2.127-6.046 3.99-.443 6.015-3.69 6.05-3.743.14-.207.086-.487-.12-.628-.206-.14-.486-.085-.626.12-.008.01-1.782 2.846-5.462 3.32-.47-1.32-.98-2.67-1.54-3.98-3.085-7.152-7.25-9.98-7.31-10.02-.206-.142-.486-.09-.628.118-.142.206-.09.486.118.628.024.018 3.93 2.682 6.83 9.387z"/></svg></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="h5 mb-4">Navigation</h4>
+                    <ul class="list-unstyled flex flex-col gap-2" style="list-style: none; padding-left: 0;">
+                        <li><a href="index.html" class="text-secondary text-sm" style="text-decoration: none;">Home</a></li>
+                        <li><a href="about.html" class="text-secondary text-sm" style="text-decoration: none;">About Us</a></li>
+                        <li><a href="services.html" class="text-secondary text-sm" style="text-decoration: none;">Services</a></li>
+                        <li><a href="portfolio.html" class="text-secondary text-sm" style="text-decoration: none;">Portfolio</a></li>
+                        <li><a href="blog.html" class="text-secondary text-sm" style="text-decoration: none;">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Services -->
+                <div>
+                    <h4 class="h5 mb-4">Services</h4>
+                    <ul class="list-unstyled flex flex-col gap-2" style="list-style: none; padding-left: 0;">
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">UX Research</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">UI Design</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">Design Systems</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">Prototyping</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">Usability Testing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div>
+                    <h4 class="h5 mb-4">Subscribe</h4>
+                    <p class="text-sm text-secondary mb-4">Get the latest design news and resources sent straight to your inbox.</p>
+                    <form class="flex gap-2">
+                        <input type="email" class="form-control text-sm" placeholder="Email address" style="padding: 0.5rem; flex-grow: 1;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">Go</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="flex justify-between items-center pt-6 footer-bottom-bar" style="border-top: 1px solid var(--border-color);">
+                <div class="text-sm text-secondary">
+                    &copy; 2026 UX/UI Studio. All rights reserved.
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-sm text-secondary" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="#" class="text-sm text-secondary" style="text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js?v=1789358417571"></script>
+</body>
+</html>

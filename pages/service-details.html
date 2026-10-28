@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura.</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <!-- Favicon (Task #1) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='9' cy='12' r='7' fill='%234f46e5' fill-opacity='0.8'/><circle cx='15' cy='12' r='7' fill='%2314b8a6' fill-opacity='0.8'/></svg>">
+
+    
+    <!-- Dark Mode & Direction Initializer (Prevents FOUC & persists across all pages) -->
+    <script>
+        (function() {
+            try {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+                const direction = localStorage.getItem('direction');
+                if (direction === 'rtl') {
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="nav-brand">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="12" r="7" fill="var(--primary-color)" fill-opacity="0.8"/>
+                    <circle cx="15" cy="12" r="7" fill="var(--accent-color)" fill-opacity="0.8"/>
+                </svg>
+                Aura<span>.</span>
+            </a>
+            
+            <nav id="navMenu" class="nav-menu">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                        Home
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home V1</a>
+                        <a href="index-2.html" class="dropdown-item">Home V2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="process.html" class="nav-link">Process</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <div class="nav-toggles">
+                    <button id="darkModeToggle" class="icon-toggle-btn" aria-label="Toggle Theme" title="Toggle Theme">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                    <button id="rtlToggle" class="icon-toggle-btn rtl-toggle-btn" aria-label="Toggle RTL" title="Toggle Direction">RTL</button>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Start Project</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Hero (Immersive Background) -->
+    <section class="section text-center" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative;">
+        <div style="position: absolute; inset: 0; background-color: rgba(17, 24, 39, 0.8); z-index: 1;"></div>
+        <div class="container relative" style="z-index: 2;">
+            <span class="text-accent font-bold" style="text-transform: uppercase; letter-spacing: 2px;">Service Details</span>
+            <h1 class="mb-4 mt-2" style="color: white; font-size: 3rem;">UX Research & Strategy</h1>
+            <p class="text-lg mx-auto" style="color: #D1D5DB; max-width: 600px;">Stop guessing what your users want. We uncover actionable insights through rigorous qualitative and quantitative research.</p>
+        </div>
+    </section>
+
+    <!-- Section 2: The Challenge (Narrative) -->
+    <section class="section">
+        <div class="container max-w-3xl mx-auto" style="max-width: 800px;">
+            <h2 class="mb-6">The Problem With Assumptions</h2>
+            <p class="text-lg mb-4 text-secondary">Most products fail not because they are poorly built, but because they are built for the wrong reasons. Many companies rely on internal assumptions rather than hard data when deciding what to build.</p>
+            <p class="text-lg text-secondary">Our research phase is designed to mitigate this risk. By engaging directly with your target audience, we identify their true pain points, motivations, and behaviors. This ensures that every design decision made downstream is backed by evidence, ultimately saving you time and money.</p>
+        </div>
+    </section>
+
+    <!-- Section 3: Our Approach (3-step flow) -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="text-center mb-12">Our Methodology</h2>
+            <div class="grid grid-cols-3 gap-8 text-center relative">
+                <!-- Line connecting steps (hidden on mobile ideally) -->
+                <div class="d-lg-block" style="position: absolute; top: 40px; left: 15%; right: 15%; height: 2px; background: var(--border-color); z-index: 1;"></div>
+                
+                <div class="relative" style="z-index: 2;">
+                    <div style="width: 80px; height: 80px; background: var(--bg-primary); border: 2px solid var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">1</div>
+                    <h4 class="h5">Discover</h4>
+                    <p class="text-sm">Stakeholder interviews, analytics review, and competitor benchmarking.</p>
+                </div>
+                <div class="relative" style="z-index: 2;">
+                    <div style="width: 80px; height: 80px; background: var(--bg-primary); border: 2px solid var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">2</div>
+                    <h4 class="h5">Engage</h4>
+                    <p class="text-sm">1-on-1 user interviews, surveys, and diary studies.</p>
+                </div>
+                <div class="relative" style="z-index: 2;">
+                    <div style="width: 80px; height: 80px; background: var(--bg-primary); border: 2px solid var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">3</div>
+                    <h4 class="h5">Synthesize</h4>
+                    <p class="text-sm">Creating personas, journey maps, and strategic reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Tools We Use (Grid of logos) -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="mb-12">Our Toolkit</h2>
+            <div class="flex flex-wrap justify-center gap-8 opacity-75" style="opacity: 0.7;">
+                <div class="font-bold text-lg" style="color: var(--text-secondary);">Miro</div>
+                <div class="font-bold text-lg" style="color: var(--text-secondary);">UserTesting</div>
+                <div class="font-bold text-lg" style="color: var(--text-secondary);">Optimal Workshop</div>
+                <div class="font-bold text-lg" style="color: var(--text-secondary);">Hotjar</div>
+                <div class="font-bold text-lg" style="color: var(--text-secondary);">Dovetail</div>
+                <div class="font-bold text-lg" style="color: var(--text-secondary);">Figma</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Related Case Study -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="mb-8 text-center">Related Success Story</h2>
+            <div class="card p-0 overflow-hidden">
+                <div class="grid grid-cols-2">
+                    <div style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; min-height: 300px;"></div>
+                    <div class="p-8" style="padding: var(--space-8); display: flex; flex-direction: column; justify-content: center;">
+                        <span class="text-primary font-bold mb-2">FinTech App</span>
+                        <h3 class="mb-4">Reducing drop-off by 40%</h3>
+                        <p class="mb-6">Through extensive user research, we identified critical friction points in the onboarding flow of a major fintech application, leading to a massive increase in completed registrations.</p>
+                        <a href="portfolio.html" class="btn btn-secondary" style="align-self: flex-start;">Read the Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Consultation CTA -->
+    <section class="section text-center" style="background-color: var(--text-primary); color: white; padding: var(--space-12) 0; margin-bottom: 0;">
+        <div class="container">
+            <h2 class="mb-4" style="color: white;">Need deeper insights into your users?</h2>
+            <p class="mb-8 text-lg" style="color: rgba(255,255,255,0.8);">Book a free 30-minute discovery call with our Lead Researcher.</p>
+            <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: var(--bg-tertiary); padding: var(--space-12) 0 var(--space-6); margin-top: 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="grid grid-cols-4 gap-8 mb-12 footer-grid">
+                <!-- Column 1: Brand & Info -->
+                <div style="grid-column: span 1;">
+                    <a href="index.html" class="nav-brand mb-4" style="font-size: 1.5rem; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="12" r="7" fill="var(--primary-color)" fill-opacity="0.8"/>
+                            <circle cx="15" cy="12" r="7" fill="var(--accent-color)" fill-opacity="0.8"/>
+                        </svg>
+                        Aura<span>.</span>
+                    </a>
+                    <p class="text-sm text-secondary mb-6">A premium UX/UI design studio dedicated to building intuitive and beautiful digital experiences for forward-thinking brands.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-secondary" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="text-secondary" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="#" class="text-secondary" aria-label="Dribbble"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm8.793-12.012c-.08-.137-2.31-3.921-6.84-4.522.062-.162.118-.328.172-.497 2.384-.528 4.708.01 4.887.056.241.062.464-.108.528-.35.064-.241-.106-.464-.348-.528-.278-.073-2.85-.694-5.49.034-.515-1.503-1.168-3.08-1.874-4.502-.117-.234-.403-.314-.62-.178-.22.138-.3.424-.183.66 2.457 4.966 2.464 9.176 2.464 9.255v.02c0 .248.203.45.45.45.247 0 .45-.202.45-.45v-.01c-.004-.378-.063-2.617-.92-5.508 4.09.435 6.096 3.865 6.136 3.935.127.215.405.286.62.16.216-.128.288-.407.16-.623zM9.535 7.185c.678 1.34 1.287 2.805 1.776 4.2-.876.246-1.84.444-2.885.576C7.03 8.35 4.316 6.32 4.14 6.186c-.198-.152-.486-.114-.638.083-.153.2-.116.488.083.64.06.044 2.864 2.152 4.414 5.96-2.583.18-5.57-.142-5.696-.157-.246-.03-.473.146-.504.39-.03.246.146.473.392.503.238.028 3.428.373 6.195.122.378 1.83 1.05 4.673 2.925 8.012.122.218.4.296.618.174.22-.12.298-.398.176-.617C9.9 17.39 9.39 14.532 9.1 12.833c1.077-.128 2.062-.317 2.956-.56.91 3.233 2.122 6.02 2.17 6.13.1.226.368.328.594.228.226-.1.328-.368.228-.594-.025-.054-1.225-2.83-2.127-6.046 3.99-.443 6.015-3.69 6.05-3.743.14-.207.086-.487-.12-.628-.206-.14-.486-.085-.626.12-.008.01-1.782 2.846-5.462 3.32-.47-1.32-.98-2.67-1.54-3.98-3.085-7.152-7.25-9.98-7.31-10.02-.206-.142-.486-.09-.628.118-.142.206-.09.486.118.628.024.018 3.93 2.682 6.83 9.387z"/></svg></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="h5 mb-4">Navigation</h4>
+                    <ul class="list-unstyled flex flex-col gap-2" style="list-style: none; padding-left: 0;">
+                        <li><a href="index.html" class="text-secondary text-sm" style="text-decoration: none;">Home</a></li>
+                        <li><a href="about.html" class="text-secondary text-sm" style="text-decoration: none;">About Us</a></li>
+                        <li><a href="services.html" class="text-secondary text-sm" style="text-decoration: none;">Services</a></li>
+                        <li><a href="portfolio.html" class="text-secondary text-sm" style="text-decoration: none;">Portfolio</a></li>
+                        <li><a href="blog.html" class="text-secondary text-sm" style="text-decoration: none;">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Services -->
+                <div>
+                    <h4 class="h5 mb-4">Services</h4>
+                    <ul class="list-unstyled flex flex-col gap-2" style="list-style: none; padding-left: 0;">
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">UX Research</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">UI Design</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">Design Systems</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">Prototyping</a></li>
+                        <li><a href="service-details.html" class="text-secondary text-sm" style="text-decoration: none;">Usability Testing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div>
+                    <h4 class="h5 mb-4">Subscribe</h4>
+                    <p class="text-sm text-secondary mb-4">Get the latest design news and resources sent straight to your inbox.</p>
+                    <form class="flex gap-2">
+                        <input type="email" class="form-control text-sm" placeholder="Email address" style="padding: 0.5rem; flex-grow: 1;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">Go</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="flex justify-between items-center pt-6 footer-bottom-bar" style="border-top: 1px solid var(--border-color);">
+                <div class="text-sm text-secondary">
+                    &copy; 2026 UX/UI Studio. All rights reserved.
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-sm text-secondary" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="#" class="text-sm text-secondary" style="text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js?v=1789358417574"></script>
+</body>
+</html>

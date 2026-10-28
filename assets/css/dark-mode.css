@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Dark Mode Styles
+   ========================================================================== */
+
+/* The .dark class applies to the body or html tag */
+.dark {
+  /* High-visibility Neon Blue for Dark Mode */
+  --primary-color: #00E5FF;
+  --primary-hover: #00B8CC;
+  
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-light: #9CA3AF;
+  
+  --bg-primary: #0F1115;
+  --bg-secondary: #1A1D24;
+  --bg-tertiary: #272A31;
+  
+  --border-color: #374151;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Component Overrides for Dark Mode if needed */
+.dark .card-icon {
+  background-color: var(--bg-tertiary);
+}
+
+.dark .navbar {
+  box-shadow: 0 1px 0 0 var(--border-color);
+}
+
+/* Dark mode support for glass-card */
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.75); /* Dark slate with opacity */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* Ensure the brand logo retains its original indigo color in dark mode */
+.dark .nav-brand span {
+  color: #4F46E5 !important;
+}
+
+.dark .nav-brand svg circle:first-of-type {
+  fill: #4F46E5 !important;
+}
+
+/* Ensure text inside the neon primary button is readable in dark mode */
+.dark .btn-primary {
+  color: #0F1115 !important;
+  font-weight: 700 !important;
+}
+
+.dark .btn-primary:hover {
+  color: #0F1115 !important;
+}
+
+.dark .btn-outline-white:hover {
+  background-color: #ffffff !important;
+  color: #0F1115 !important;
+  border-color: #ffffff !important;
+}
+
+.dark .icon-toggle-btn {
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.dark .icon-toggle-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Pricing Popular Card Dark Mode Contrast */
+.dark .pricing-card-popular {
+  background: #4F46E5 !important;
+  color: #ffffff !important;
+}
+
+.dark .pricing-card-popular .btn-light-popular {
+  background: #ffffff !important;
+  color: #4F46E5 !important;
+}
+
+

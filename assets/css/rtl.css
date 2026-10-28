@@ -1,0 +1,70 @@
+/* ==========================================================================
+   RTL (Right-to-Left) Styles
+   ========================================================================== */
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .text-left { text-align: right; }
+html[dir="rtl"] .text-right { text-align: left; }
+
+html[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+
+html[dir="rtl"] .btn svg:not(.no-rtl),
+html[dir="rtl"] a svg:not(.no-rtl) {
+  transform: scaleX(-1);
+}
+
+/* Ensure the brand name and dot render in correct order */
+html[dir="rtl"] .nav-brand {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-flex;
+  align-items: center;
+}
+
+html[dir="rtl"] .footer {
+  text-align: right;
+}
+
+/* RTL Header Layout */
+html[dir="rtl"] .rtl-toggle-btn {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-color) !important;
+}
+
+html[dir="rtl"] .nav-menu {
+  direction: rtl;
+}
+
+html[dir="rtl"] .form-control {
+  text-align: right;
+}
+
+html[dir="rtl"] .card {
+  text-align: right;
+}
+
+html[dir="rtl"] .card.text-center,
+html[dir="rtl"] .text-center {
+  text-align: center;
+}
+
+html[dir="rtl"] .pricing-card {
+  text-align: right;
+}
+
+html[dir="rtl"] .pricing-card ul {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
